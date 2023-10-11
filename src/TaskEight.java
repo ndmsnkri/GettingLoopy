@@ -1,25 +1,26 @@
+import java.util.Scanner;
 
-    import java.util.Scanner;
+public class TaskEight {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        double celsius = 0, fahrenheit;
 
-    public class TaskEight {
-        public static void main(String[] args) {
+        boolean done = false;
 
-            Scanner in = new Scanner(System.in);
-            double celsius, fahrenheit;
-
-            do {
-                System.out.print("Enter temperature in Celsius: ");
-                while (!in.hasNextDouble()) {
-                    System.out.println("Invalid input. Please enter a valid number.");
-                    in.next(); // Consume the invalid input
-                }
+        do {
+            System.out.print("Enter temperature in Celsius: ");
+            if (in.hasNextDouble()) {
                 celsius = in.nextDouble();
-            } while (celsius < -273.15); // Absolute zero in Celsius
+                done = true;
+            } else {
+                System.out.println("Invalid input. Please enter a valid number.");
+                in.next();
+            }
+        } while (!done);
 
-            fahrenheit = (celsius * 9/5) + 32;
-            System.out.println("Temperature in Fahrenheit: " + fahrenheit);
+        fahrenheit = (celsius * 9/5) + 32;
+        System.out.println("Temperature in Fahrenheit: " + fahrenheit);
 
-            in.close();
-        }
+        in.close();
     }
-
+}
